@@ -13,4 +13,9 @@ class VehicleDetails extends Model
     {
     	return $this->belongsTo('App\UserDetails');
     }
+
+    public function getMakeAndModel()
+    {
+    	return $this->make . ' ' . $this->model;
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\UserDetails;
 
 class IndexController extends Controller
 {
@@ -33,6 +34,13 @@ class IndexController extends Controller
      */
     public function home()
     {
-        return view('index');
+        $users = UserDetails::all();
+        return view('index', ['data' => $users]);
+    }
+
+    public function getAllDetails($user_id)
+    {
+        $user = UserDetails::find($user_id);
+        return view('details', ['data' => $user]);
     }
 }

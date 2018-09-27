@@ -20,5 +20,7 @@ Route::group(['middleware' => ['web']], function() {
 	Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
     Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
     Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+
+    Route::get('{user_id}', ['as' => 'user', 'uses' => 'IndexController@getAllDetails']);
 });
 
