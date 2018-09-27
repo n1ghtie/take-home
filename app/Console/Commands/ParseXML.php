@@ -61,15 +61,16 @@ class ParseXML extends Command
             $userDetails = UserDetails::firstOrCreate([
                 'full_name' => $vehicle->owner_name,
                 'company' => $vehicle->owner_company,
+                'usage' => $vehicle->usage,
                 'profession' => $vehicle->owner_profession
             ]);
 
             $vehicleDetails = new VehicleDetails([
-                'licence_plate' => $vehicle->license_plate,
+                'license_plate' => $vehicle->license_plate,
                 'userdetails_id' => $userDetails->id,
                 'make' => $vehicle->attributes()->manufacturer,
                 'model' => $vehicle->attributes()->model,
-                'color' => $vehicle->colour,
+                'colour' => $vehicle->colour,
                 'engine_cc' => $vehicle->engine_cc,
                 'no_wheels' => $vehicle->no_wheels,
                 'no_doors' => $vehicle->no_doors,
@@ -80,9 +81,8 @@ class ParseXML extends Command
                 'is_hgv' => $this->isValid($vehicle->is_hgv),
                 'has_trailer' => $this->isValid($vehicle->has_trailer),
                 'has_boot' => $this->isValid($vehicle->has_boot),
-                'fuel_type' => $vehicle->fuel_type,
+                'fuel_type' => $vehicle->type,
                 'transmission' => $vehicle->transmission,
-                'type' => $vehicle->type,
             ]);
 
             $userDetails->vehicle()->save($vehicleDetails);
