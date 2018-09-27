@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\UserDetails;
+use Auth;
 
 class IndexController extends Controller
 {
@@ -46,5 +47,12 @@ class IndexController extends Controller
             abort(404);
         }
         return view('details', ['data' => $user]);
+    }
+
+    public function getApiToken()
+    {
+        $user = Auth::user();
+        $token = $user->createToken('Token Name')->accessToken;
+        return view('api', ['data' => $token]);
     }
 }

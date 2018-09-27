@@ -81,7 +81,7 @@ class ParseXML extends Command
                 'is_hgv' => $this->isValid($vehicle->is_hgv),
                 'has_trailer' => $this->isValid($vehicle->has_trailer),
                 'has_boot' => $this->isValid($vehicle->has_boot),
-                'fuel_type' => $vehicle->type,
+                'fuel' => $vehicle->type,
                 'transmission' => $vehicle->transmission,
             ]);
 

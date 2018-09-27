@@ -18,9 +18,10 @@ Route::get('/home', 'IndexController@home')->name('home');
 // redefine Laravel auth routes, remove forget password and register.
 Route::group(['middleware' => ['web']], function() {
 	Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+	Route::get('vehicle/{user_id}', ['as' => 'user', 'uses' => 'IndexController@getAllDetails']);
+	Route::get('api-access', ['as' => 'api-access', 'uses' => 'IndexController@getApiToken']);
+
     Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
     Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
-
-    Route::get('{user_id}', ['as' => 'user', 'uses' => 'IndexController@getAllDetails']);
 });
 
