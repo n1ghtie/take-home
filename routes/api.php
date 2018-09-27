@@ -14,5 +14,6 @@
 Route::post('/login', 'ApiController@login');
 
 Route::group(['middleware' => 'auth:api'], function(){
-	Route::get('/user-details', 'ApiController@details');
+	Route::get('/user-details', 'ApiController@getUserdetails');
+	Route::get('/vehicle-details/{user_id}', 'ApiController@getVehicleDetails');
 });
