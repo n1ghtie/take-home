@@ -22,7 +22,7 @@ class ParseXML extends Command
      *
      * @var string
      */
-    protected $description = 'Parses XML file stored in storage/app/filename.xml, please provide a filename, if left empty will use sample.xml';
+    protected $description = 'Parses XML file stored in storage/app/{?filename.xml}, optionally provide a filename, if left empty will use sample.xml';
 
     /**
      * Create a new command instance.
@@ -44,10 +44,10 @@ class ParseXML extends Command
         return simplexml_load_file(storage_path('app/' . $filename));
     }
 
-    private function isTrueOrFalse($value)
+    private function isValid($value, $key = NULL)
     {
-        // needs rework...
-        return $value == '0' || $value == 0 || strtoupper($value) == 'FALSE' || $value == '' ? false : true;
+        $summary = filter_var($value) == '1' || filter_var($value) == 'true' ? true : false;
+        return $summary;
     }
 
     private function parseXMLfile()
@@ -75,11 +75,11 @@ class ParseXML extends Command
                 'no_doors' => $vehicle->no_doors,
                 'no_seats' => $vehicle->no_seats,
                 'weight_category' => $vehicle->weight_category,
-                'has_gps' => $this->isTrueOrFalse($vehicle->has_gps),
-                'has_sunroof' => $this->isTrueOrFalse($vehicle->has_sunroof),
-                'is_hgv' => $this->isTrueOrFalse($vehicle->is_hgv),
-                'has_trailer' => $this->isTrueOrFalse($vehicle->has_trailer),
-                'has_boot' => $this->isTrueOrFalse($vehicle->has_boot),
+                'has_gps' => $this->isValid($vehicle->has_gps),
+                'has_sunroof' => $this->isValid($vehicle->sunroof, 'has_sunroof'),
+                'is_hgv' => $this->isValid($vehicle->is_hgv),
+                'has_trailer' => $this->isValid($vehicle->has_trailer),
+                'has_boot' => $this->isValid($vehicle->has_boot),
                 'fuel_type' => $vehicle->fuel_type,
                 'transmission' => $vehicle->transmission,
                 'type' => $vehicle->type,
