@@ -18,4 +18,9 @@ class VehicleDetails extends Model
     {
     	return $this->make . ' ' . $this->model;
     }
+
+    public function prettifyColor()
+    {
+    	return preg_replace('/(?<!\ )[A-Z]/', ' $0', $this->color);
+    }
 }

@@ -20,10 +20,18 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="@yield('class')">
+        @if(Auth::check())
+            @include('partials.nav')
+        @endif
+
         <main>
             @yield('content')
         </main>
+
+        @if(Auth::check())
+            @include('partials.footer')
+        @endif
     </div>
 </body>
 </html>

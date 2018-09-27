@@ -2,6 +2,8 @@
 
 @section('title', 'Service Unavailable')
 
+@section('class', 'has-error')
+
 @section('content')
 <div class="full-height">
     <div class="ui middle aligned center aligned grid">

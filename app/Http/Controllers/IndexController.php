@@ -41,6 +41,10 @@ class IndexController extends Controller
     public function getAllDetails($user_id)
     {
         $user = UserDetails::find($user_id);
+        if(!$user) 
+        {
+            abort(404);
+        }
         return view('details', ['data' => $user]);
     }
 }

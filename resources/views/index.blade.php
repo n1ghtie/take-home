@@ -3,8 +3,6 @@
 @section('title', 'Home')
 
 @section('content')
-@include('partials.nav')
-
 <div class="ui container">
   <h1 class="ui header">Owner Details Overview</h1>
   <p>Click on name to view more details</p>
