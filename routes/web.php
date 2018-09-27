@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', 'IndexController@index')->name('index');
+Route::get('/home', 'IndexController@home')->name('home');
+
+// redefine Laravel auth routes, remove forget password and register.
+Route::group(['middleware' => ['web']], function() {
+	Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+    Route::post('login', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
+    Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

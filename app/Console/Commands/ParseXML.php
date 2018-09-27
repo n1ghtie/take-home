@@ -96,8 +96,10 @@ class ParseXML extends Command
      */
     public function handle()
     {
-        $this->xmlFile = $this->getXMLfile($this->argument('filename'));
-        print_r($this->parseXMLfile());
-        print_r(UserDetails::find(1)->with('vehicle')->first()->id);
+        $filename = $this->argument('filename');
+        $this->xmlFile = $this->getXMLfile($filename);
+        $this->parseXMLfile();
+
+        echo 'file parsed.' . PHP_EOL;
     }
 }

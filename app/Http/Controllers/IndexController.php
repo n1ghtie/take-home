@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class IndexController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,13 +16,23 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+     /**
+     * Redirect to login page
+     *
+     * @return Illuminate\Support\Facades\Redirect
+     */
+    public function index()
+    {
+        return redirect()->route('login');
+    }
+
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function home()
     {
-        return view('home');
+        return view('index');
     }
 }
