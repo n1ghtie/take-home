@@ -5,7 +5,7 @@
 @section('content')
 <div class="full-height">
     <div class="ui middle aligned center aligned grid">
-        <div class="four wide column">
+        <div class="twelve wide phone eight wide tablet six wide computer column">
             <h2 class="ui teal image header">
                   <div class="content">
                         Log-in

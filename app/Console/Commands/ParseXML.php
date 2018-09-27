@@ -44,7 +44,7 @@ class ParseXML extends Command
         return simplexml_load_file(storage_path('app/' . $filename));
     }
 
-    private function isValid($value, $key = NULL)
+    private function isValid($value)
     {
         $summary = filter_var($value) == '1' || filter_var($value) == 'true' ? true : false;
         return $summary;
@@ -76,7 +76,7 @@ class ParseXML extends Command
                 'no_seats' => $vehicle->no_seats,
                 'weight_category' => $vehicle->weight_category,
                 'has_gps' => $this->isValid($vehicle->has_gps),
-                'has_sunroof' => $this->isValid($vehicle->sunroof, 'has_sunroof'),
+                'has_sunroof' => $this->isValid($vehicle->sunroof),
                 'is_hgv' => $this->isValid($vehicle->is_hgv),
                 'has_trailer' => $this->isValid($vehicle->has_trailer),
                 'has_boot' => $this->isValid($vehicle->has_boot),
