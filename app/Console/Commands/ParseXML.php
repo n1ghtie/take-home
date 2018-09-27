@@ -65,7 +65,7 @@ class ParseXML extends Command
             ]);
 
             $vehicleDetails = new VehicleDetails([
-                'license_plate' => $vehicle->license_plate,
+                'licence_plate' => $vehicle->license_plate,
                 'userdetails_id' => $userDetails->id,
                 'make' => $vehicle->attributes()->manufacturer,
                 'model' => $vehicle->attributes()->model,
