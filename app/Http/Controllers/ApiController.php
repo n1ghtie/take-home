@@ -13,12 +13,17 @@ class ApiController extends Controller
 {
     public $successStatus = 200;
 
+    /**
+     * POST to get access token, using email and password
+     *
+     * @return json
+     */
     public function login()
     { 
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')]))
         {
             $user = Auth::user(); 
-            $success['token'] =  $user->createToken('MyApp')->accessToken; 
+            $success['token'] = $user->createToken('MyApp')->accessToken; 
             return response()->json(['success' => $success], $this-> successStatus); 
         } 
         else { 
@@ -26,12 +31,23 @@ class ApiController extends Controller
         } 
     }
 
+    /**
+     * GET all user details
+     *
+     * @return json
+     */
     public function getUserdetails()
     {
     	$users = UserDetails::all();
     	return response()->json(['success' => $users], $this->successStatus);
     }
 
+    /**
+     * GET all user vehicle details
+     * 
+     * @param user_id
+     * @return json
+     */
     public function getVehicleDetails($user_id)
     {
         $vehicle = VehicleDetails::find($user_id);
