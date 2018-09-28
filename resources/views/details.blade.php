@@ -28,14 +28,10 @@ $vehicle = $data->vehicle;
         <tbody>
           <tr>
             <td>Registration Number:</td>
-            <td class="license-plate"><span>{{ $vehicle->licence_plate }}</span></td>
+            <td class="license-plate"><span>{{ $vehicle->license_plate }}</span></td>
           </tr>
           <tr>
-            <td>Engine type:</td>
-            <td>{{ $vehicle->type }}</td> 
-          </tr>
-          <tr>
-            <td>Engine:</td>
+            <td>Engine CC:</td>
             <td>{{ $vehicle->engine_cc }} cc</td>
           </tr>
           <tr>
@@ -64,7 +60,7 @@ $vehicle = $data->vehicle;
           </tr>
           <tr>
             <td>Fuel:</td>
-            <td>{{ $vehicle->type }}</td>
+            <td>{{ $vehicle->fuel }}</td>
           </tr>
           <tr>
             <td>GPS:</td>

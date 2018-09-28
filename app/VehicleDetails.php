@@ -21,6 +21,6 @@ class VehicleDetails extends Model
 
     public function prettifyColor()
     {
-    	return preg_replace('/(?<!\ )[A-Z]/', ' $0', $this->color);
+    	return preg_replace('/(?<!\ )[A-Z]/', ' $0', $this->colour);
     }
 }

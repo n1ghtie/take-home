@@ -13,6 +13,7 @@
         <th>Name</th>
         <th>Profession</th>
         <th>Company</th>
+        <th>Usage Purpose</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
         <td><a href="{{ route('user', ['user_id' => $user->id]) }}">{{ $user->full_name }}</a></td>
         <td>{{ $user->profession }}</td>
         <td>{{ $user->company }}</td>
+        <td>{{ $user->usage }}</td>
       </tr>
       @endforeach
     </tbody>
