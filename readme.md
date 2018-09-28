@@ -32,3 +32,10 @@ Get vehicle details based on user_id
 ```
 GET /api/vehicle-details/{user_id}
 ```
+
+## Tests
+All tests are done in `phpunit` tests format. (make sure phpunit command is available, if not use `./vendor/bin/phpunit`)
+To get test results for API use following command
+```
+phpunit --filter APITest
+```
