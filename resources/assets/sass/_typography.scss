@@ -1,0 +1,11 @@
+.license-plate {
+	font-family: 'uknumberplateregular', sans-serif;
+
+	> span {
+		display: inline-block;
+		padding: 3px 7px;
+		border-radius: 2px;
+		line-height: 1;
+		background: rgb(239, 200, 70);
+	}
+}

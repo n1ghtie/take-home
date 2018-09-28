@@ -39857,6 +39857,27 @@ body.pushable > .pusher {
   font-style: normal;
 }
 
+.license-plate {
+  font-family: 'uknumberplateregular', sans-serif;
+}
+
+.license-plate > span {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 2px;
+  line-height: 1;
+  background: #efc846;
+}
+
+#app {
+  padding-bottom: 70px;
+  position: relative;
+}
+
+#app.has-error {
+  height: 100%;
+}
+
 .full-height {
   position: absolute;
   width: 100%;
@@ -39867,15 +39888,6 @@ body.pushable > .pusher {
 }
 
 .full-height > .grid {
-  height: 100%;
-}
-
-#app {
-  padding-bottom: 70px;
-  position: relative;
-}
-
-#app.has-error {
   height: 100%;
 }
 
@@ -39891,18 +39903,6 @@ body.pushable > .pusher {
   padding-top: 1rem;
   z-index: 99;
   position: relative;
-}
-
-.license-plate {
-  font-family: 'uknumberplateregular';
-}
-
-.license-plate > span {
-  display: inline-block;
-  padding: 3px 7px;
-  border-radius: 2px;
-  line-height: 1;
-  background: #efc846;
 }
 
 .details tr > td:first-of-type {
